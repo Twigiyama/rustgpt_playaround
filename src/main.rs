@@ -95,4 +95,16 @@ fn main() {
     let add_num: Box<dyn Fn(i32) -> i32> = Box::new(move|n: i32| n + num);
     let new_num: i32 = add_num(10);
     dbg!(new_num);
+
+    //number literals
+    println!("Big number is {}", 98_222_000);
+    println!("Hex is {}", 0xff);
+    println!("Octal is {}", 0o77);
+    println!("Binary is {}", 0b1111_0000);
+    println!("Byte is {}", b'A');
+
+    //Raw String Literals
+    let textstr: &str = r#"{This} \ is a \ "raw string literal"#;
+    println!("{}", textstr);
+
 }
