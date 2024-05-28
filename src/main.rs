@@ -107,4 +107,34 @@ fn main() {
     let textstr: &str = r#"{This} \ is a \ "raw string literal"#;
     println!("{}", textstr);
 
+    //Binary
+    let a: u8 = 0b_1010_1010;
+    let b: u8 = 0b_0101_1010;
+    println!("A's value is {}", a);
+    println!("B's value is {}", b);
+
+    //Logic gates
+    println!("Printing in binary {:08b}", a);
+    println!("Printing in binary {:08b}", b);
+
+    println!("AND is {:08b}", a & b);
+    println!("OR is {:08b}", a | b);
+    println!("XOR is {:08b}", a ^ b);
+    println!("NOT is {:08b}", !a);
+
+    //bitwise operations
+    println!("a << 1 {:08b}", a << 1); //shift left
+    println!("a >> 1 {:08b}", a >> 1); //shift right
+
+    // Little endian or Big endian
+    let n: u16 = 0x1234;
+    println!("n is {:?}", n);
+
+    let big_endian: [u8; 2] = n.to_be_bytes();
+    println!("Big endian is {:?}", big_endian);
+
+
+    let little_endian: [u8; 2] = n.to_le_bytes();
+    println!("Little endian is {:?}", little_endian);
+
 }
