@@ -94,7 +94,7 @@ fn main() {
 
     // Closures
     let num: i32 = 5;
-    let add_num: Box<dyn Fn(i32) -> i32> = Box::new(move|n: i32| n + num);
+    let add_num: Box<dyn Fn(i32) -> i32> = Box::new(move |n: i32| n + num);
     let new_num: i32 = add_num(10);
     dbg!(new_num);
 
@@ -135,8 +135,6 @@ fn main() {
     let big_endian: [u8; 2] = n.to_be_bytes();
     println!("Big endian is {:?}", big_endian);
 
-
     let little_endian: [u8; 2] = n.to_le_bytes();
     println!("Little endian is {:?}", little_endian);
-
 }
