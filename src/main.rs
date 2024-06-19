@@ -25,6 +25,18 @@ fn main() {
         }
     }
 
+    fn longest<'a>(first_string: &'a str, second_string: &'a str) -> &'a str {
+        if first_string.len() > second_string.len() {
+            first_string
+        } else {
+            second_string
+        }
+    }
+
+    let bungle = "Bungle";
+    let mumble: String = String::from("Mumble");
+
+
     //Mutability
     let mut z: i32 = 5;
     print!("Z was {} ", z);
