@@ -2,6 +2,7 @@ mod m1_enums;
 mod m2_structs;
 mod m3_enums;
 mod m4_polymorphism;
+mod m5_lifetimes;
 
 const OUR_COURSE: &str = "Rust with AutGPT";
 
