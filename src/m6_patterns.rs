@@ -1,6 +1,6 @@
-use std::os::unix::process;
+use std::{os::unix::process, panic::Location};
 
-use ethers::{core::k256::sha2::digest::core_api::BlockSizeUser, utils::hex::ToHexExt};
+use ethers::{core::k256::sha2::digest::{core_api::BlockSizeUser, XofReader}, utils::hex::ToHexExt};
 
 enum Message {
     Quit,
@@ -109,4 +109,31 @@ mod test {
         println!("The result is: {}", my_int);
         println!("The result is: {}", res);
 
+    }
+
+    #[test]
+    fn tests_match_guard() {
+        let pair = (3, 2);
+        match pair {
+            (x, y) if x == y => println!("The numbers are the same"),
+            (x, y) if x + y == 0 => println!("The numbers are the inverse"),
+            (_, y) if y == 2 => println!("The second number is 2"),
+            _ => println!("No match")
+        };
+    }
+
+    #[test]
+    fn tests_match_struct() {
+        struct Location {
+            x: i32,
+            y: i32
+        }
+        let location = Location { x: 0, y: 0 };
+
+        match location {
+            Location { x, y } if x == 0 && y == 0 => println!("The location is on the origin"),
+            Location { x, y } if x == 0 => println!("The location is on the y-axis"),
+            Location { x, y } if y == 0 => println!("The location is on the x-axis"),
+            _ => println!("Neither is on the axis")
+        };
     }
