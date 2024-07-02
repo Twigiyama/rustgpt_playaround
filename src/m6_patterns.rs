@@ -1,8 +1,54 @@
+use std::os::unix::process;
+
+use ethers::{core::k256::sha2::digest::core_api::BlockSizeUser, utils::hex::ToHexExt};
+
+enum Message {
+    Quit,
+    ChangeColour(i32, i32, i32),
+    Move { x: i32, y: i32 },
+    Write(String),
+}
+
+fn process_message(msg: Message) {
+    match msg {
+        Message::Quit => {
+            println!("I quit - I've had enough.");
+        },
+
+        Message::ChangeColour(red, green, blue )=> {
+            println!("Changing colour to: {}, {}, {}", red, green, blue);
+        },
+
+        Message::Move { x, y } => {
+            println!("Moving to: {}, {}", x, y);
+        },
+
+        Message::Write(text) => {
+            println!("Writing: {}", text);
+        }
+    };
+}
+
 
 #[cfg(test)]
 mod test {
     use super::*;
 }
+
+#[test]
+    fn tests_large_enum() {
+        let my_quit: Message = Message::Quit;
+        process_message(my_quit);
+
+        let my_colour: Message = Message::ChangeColour((212), (134), (98));
+        process_message(my_colour);
+
+        let my_move = Message::Move { x: 10, y: 20 };
+        process_message(my_move);
+
+        let my_write = Message::Write(String::from("Bollocks"));
+        process_message(my_write);
+    }
 
 #[test]
     fn tests_match_literals() {
