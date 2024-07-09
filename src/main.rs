@@ -6,6 +6,7 @@ mod m5_lifetimes;
 mod m6_patterns;
 mod m7_sync;
 mod m8_collections;
+mod  m9_declarative_macros;
 
 const OUR_COURSE: &str = "Rust with AutGPT";
 
